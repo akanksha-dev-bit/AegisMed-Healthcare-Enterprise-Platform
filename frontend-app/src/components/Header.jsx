@@ -1,12 +1,12 @@
 import React from 'react';
-import { 
-  Shield, 
-  Home, 
-  BarChart3, 
-  FileText, 
-  Search, 
-  Calendar, 
-  CheckSquare 
+import {
+  Shield,
+  Home,
+  BarChart3,
+  FileText,
+  Search,
+  Calendar,
+  CheckSquare
 } from 'lucide-react';
 
 export default function Header({ activeTab, onTabChange, status }) {
@@ -26,10 +26,10 @@ export default function Header({ activeTab, onTabChange, status }) {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-slate-200 px-4 sm:px-6 py-3 shadow-xs">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
-        
+
         {/* LEFT: Logo & Brand */}
-        <div 
-          onClick={() => onTabChange('home')} 
+        <div
+          onClick={() => onTabChange('home')}
           className="flex items-center gap-3 cursor-pointer select-none shrink-0 group transition-transform active:scale-95"
         >
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all">
@@ -40,9 +40,9 @@ export default function Header({ activeTab, onTabChange, status }) {
               <span className="text-lg font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
                 🛡️ AegisMed
               </span>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80">
-                ENTERPRISE
-              </span>
+              {/* <span className="text-[10px] font-extrabold uppercase tracking-widest px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200/80"> */}
+              {/* ENTERPRISE */}
+              {/* </span> */}
             </div>
             <p className="text-[11px] font-semibold text-slate-400 tracking-tight mt-0.5">
               Healthcare Intelligence Platform
@@ -60,11 +60,10 @@ export default function Header({ activeTab, onTabChange, status }) {
                 key={item.id}
                 onClick={() => onTabChange(item.id)}
                 type="button"
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-150 whitespace-nowrap cursor-pointer select-none ${
-                  isActive
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25'
-                    : 'text-slate-600 hover:text-blue-600 hover:bg-white active:scale-95'
-                }`}
+                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-150 whitespace-nowrap cursor-pointer select-none ${isActive
+                  ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25'
+                  : 'text-slate-600 hover:text-blue-600 hover:bg-white active:scale-95'
+                  }`}
               >
                 <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-blue-600'}`} />
                 <span>{item.label}</span>
@@ -73,25 +72,7 @@ export default function Header({ activeTab, onTabChange, status }) {
           })}
         </nav>
 
-        {/* RIGHT: Live Status Badges */}
-        <div className="flex items-center gap-2 shrink-0">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-200 text-[11px] font-bold text-slate-700 shadow-xs">
-            <span className={`w-2 h-2 rounded-full ${backendOnline ? 'bg-emerald-500 shadow-xs shadow-emerald-400' : 'bg-emerald-500 animate-pulse'}`} />
-            <span className="hidden sm:inline">Backend Operational</span>
-            <span className="sm:hidden">Online</span>
-          </div>
 
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-50 border border-slate-200 text-[11px] font-bold text-slate-700 shadow-xs">
-            <span className={`w-2 h-2 rounded-full ${dbConnected ? 'bg-emerald-500 shadow-xs shadow-emerald-400' : 'bg-emerald-500'}`} />
-            <span className="hidden sm:inline">Database Connected</span>
-            <span className="sm:hidden">DB Synced</span>
-          </div>
-
-          <div className="hidden xl:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[11px] font-bold text-blue-700 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-blue-600 shadow-xs shadow-blue-400" />
-            <span>Vector Store Active ({ragChunks} Chunks)</span>
-          </div>
-        </div>
 
       </div>
 
@@ -105,11 +86,10 @@ export default function Header({ activeTab, onTabChange, status }) {
               key={item.id}
               onClick={() => onTabChange(item.id)}
               type="button"
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
-                isActive
-                  ? 'bg-blue-600 text-white shadow-xs'
-                  : 'text-slate-600 hover:bg-slate-100'
-              }`}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${isActive
+                ? 'bg-blue-600 text-white shadow-xs'
+                : 'text-slate-600 hover:bg-slate-100'
+                }`}
             >
               <Icon className="w-3.5 h-3.5" />
               <span>{item.label}</span>
