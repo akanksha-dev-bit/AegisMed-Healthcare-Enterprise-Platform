@@ -134,3 +134,4 @@ export default function DashboardView({ status, onNavigate }) {
     </div>
   );
 }
+
